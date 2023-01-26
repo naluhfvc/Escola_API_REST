@@ -25,6 +25,7 @@ class UserController {
   async show(req, res) {
     try {
       const { id } = req.params;
+      if (!id) return res.status(400).json({ errors: ['ID não enviado.'] });
       const user = await User.findByPk(id, { attributes: ['id', 'nome', 'email'] });
       return res.json(user);
     } catch (e) {
