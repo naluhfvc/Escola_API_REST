@@ -20,8 +20,7 @@ class AlunoController {
 
   async index(req, res) {
     const alunos = await Aluno.findAll();
-
-    res.json(alunos);
+    return res.json(alunos);
   }
 
   async show(req, res) {
